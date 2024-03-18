@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+      <!-- Etiquetas meta requeridas -->
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+      {% block styles %}
+        <!-- CSS de Bootstrap -->
+        {{ bootstrap.load_css() }}
+      {% endblock %}
+
+      <title>
+        {% block title %}
+          Carlos |
+        {% endblock %}
+      </title>
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      {% include 'navbar.html' %}
+    </header>
+
+    {% for message in get_flashed_messages() %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    {{ bootstrap.load_js() }}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block list %}
+
+    {% endblock %}
+
+    {% block inicio %}
+
+    {% endblock %}
+  </body>
+</html>
